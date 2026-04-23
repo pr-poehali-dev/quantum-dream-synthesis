@@ -5,51 +5,51 @@
 @layer base {
   :root {
     /* Color Palette */
-    --cream: #f5f1ed;
-    --charcoal: #1a1815;
-    --taupe: #a89f99;
-    --gold: #c9a961;
-    --warm-white: #faf8f5;
+    --cream: #0e0c0f;
+    --charcoal: #f0ece8;
+    --taupe: #8a7f8d;
+    --gold: #b8962e;
+    --warm-white: #1a1520;
 
     /* Design Tokens */
-    --background: 30 20% 95%;
-    --foreground: 30 10% 10%;
+    --background: 270 15% 7%;
+    --foreground: 30 20% 90%;
 
-    --card: 30 30% 98%;
-    --card-foreground: 30 10% 10%;
+    --card: 270 15% 10%;
+    --card-foreground: 30 20% 90%;
 
-    --popover: 30 30% 98%;
-    --popover-foreground: 30 10% 10%;
+    --popover: 270 15% 10%;
+    --popover-foreground: 30 20% 90%;
 
-    --primary: 30 10% 10%;
-    --primary-foreground: 30 20% 95%;
+    --primary: 30 20% 90%;
+    --primary-foreground: 270 15% 7%;
 
-    --secondary: 30 8% 63%;
-    --secondary-foreground: 30 30% 98%;
+    --secondary: 270 10% 25%;
+    --secondary-foreground: 30 20% 90%;
 
-    --muted: 30 8% 63%;
-    --muted-foreground: 30 10% 10%;
+    --muted: 270 10% 25%;
+    --muted-foreground: 30 10% 60%;
 
-    --accent: 43 50% 59%;
-    --accent-foreground: 30 10% 10%;
+    --accent: 43 62% 45%;
+    --accent-foreground: 270 15% 7%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 30 30% 98%;
+    --destructive-foreground: 30 20% 90%;
 
-    --border: 30 8% 63%;
-    --input: 30 30% 98%;
-    --ring: 43 50% 59%;
+    --border: 270 10% 20%;
+    --input: 270 15% 10%;
+    --ring: 43 62% 45%;
 
     --radius: 0;
 
-    --sidebar-background: 30 20% 95%;
-    --sidebar-foreground: 30 10% 10%;
-    --sidebar-primary: 30 10% 10%;
-    --sidebar-primary-foreground: 30 20% 95%;
-    --sidebar-accent: 43 50% 59%;
-    --sidebar-accent-foreground: 30 10% 10%;
-    --sidebar-border: 30 8% 63%;
-    --sidebar-ring: 43 50% 59%;
+    --sidebar-background: 270 15% 7%;
+    --sidebar-foreground: 30 20% 90%;
+    --sidebar-primary: 30 20% 90%;
+    --sidebar-primary-foreground: 270 15% 7%;
+    --sidebar-accent: 43 62% 45%;
+    --sidebar-accent-foreground: 270 15% 7%;
+    --sidebar-border: 270 10% 20%;
+    --sidebar-ring: 43 62% 45%;
   }
 
   .dark {
@@ -100,6 +100,16 @@
     @apply bg-background text-foreground font-sans antialiased;
     background-color: var(--cream);
     color: var(--charcoal);
+  }
+
+  /* Gothic texture overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
   }
 
   h1 {

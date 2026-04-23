@@ -8,21 +8,21 @@ interface NavigationProps {
 
 const translations = {
   en: {
-    biography: "Biography",
-    concerts: "Concerts",
-    gallery: "Gallery",
+    biography: "About",
+    concerts: "Book",
+    gallery: "Portfolio",
     contact: "Contact",
   },
   de: {
-    biography: "Biographie",
-    concerts: "Konzerte",
-    gallery: "Galerie",
+    biography: "Über mich",
+    concerts: "Buchen",
+    gallery: "Portfolio",
     contact: "Kontakt",
   },
   ru: {
-    biography: "Биография",
-    concerts: "Концерты",
-    gallery: "Галерея",
+    biography: "О мастере",
+    concerts: "Запись",
+    gallery: "Портфолио",
     contact: "Контакт",
   },
 }
@@ -45,53 +45,51 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinkColor = isHeroSection ? "text-white" : "text-charcoal"
-  const navLinkHoverColor = isHeroSection ? "hover:text-gold" : "hover:text-gold"
-  const logoColor = isHeroSection ? "text-white" : "text-charcoal"
-  const menuButtonColor = isHeroSection ? "text-white" : "text-charcoal"
+  const navLinkColor = "text-white/70"
+  const navLinkHoverColor = "hover:text-gold"
+  const logoColor = "text-white"
+  const menuButtonColor = "text-white/70"
   const languageButtonActiveColor = "text-gold"
-  const languageButtonInactiveColor = isHeroSection
-    ? "text-white/60 hover:text-white"
-    : "text-charcoal/60 hover:text-charcoal"
-  const navBgColor = isHeroSection ? "bg-transparent" : "bg-cream/95"
-  const borderColor = isHeroSection ? "border-white/10" : "border-taupe/20"
-  const mobileMenuBg = isHeroSection ? "bg-charcoal/95 backdrop-blur-sm" : "bg-cream/95"
-  const mobileLinkColor = isHeroSection ? "text-white" : "text-charcoal"
+  const languageButtonInactiveColor = "text-white/40 hover:text-white/70"
+  const navBgColor = isHeroSection ? "bg-transparent" : "bg-black/90"
+  const borderColor = isHeroSection ? "border-transparent" : "border-gold/10"
+  const mobileMenuBg = "bg-black/95 backdrop-blur-sm"
+  const mobileLinkColor = "text-white/70"
 
   return (
     <nav
-      className={`fixed w-full ${navBgColor} backdrop-blur-sm z-50 border-b ${borderColor} transition-all duration-300`}
+      className={`fixed w-full ${navBgColor} backdrop-blur-sm z-50 border-b ${borderColor} transition-all duration-500`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className={`${logoColor} font-serif text-2xl font-normal tracking-wide transition-colors duration-300`}>
-            A. Voss
+          <div className={`${logoColor} font-serif text-xl font-normal tracking-[0.15em] transition-colors duration-300`}>
+            TATTOO KRISTOFER
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <a
               href="#biography"
-              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
+              className={`text-xs tracking-widest uppercase ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
             >
               {t.biography}
             </a>
             <a
               href="#concerts"
-              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
+              className={`text-xs tracking-widest uppercase ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
             >
               {t.concerts}
             </a>
             <a
               href="#gallery"
-              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
+              className={`text-xs tracking-widest uppercase ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
             >
               {t.gallery}
             </a>
             <a
               href="#contact"
-              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
+              className={`text-xs tracking-widest uppercase ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
             >
               {t.contact}
             </a>
@@ -126,29 +124,33 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
         {/* Mobile Menu */}
         {isOpen && (
           <div
-            className={`md:hidden pb-4 space-y-3 border-t ${borderColor} ${mobileMenuBg} transition-all duration-300`}
+            className={`md:hidden pb-6 pt-2 space-y-1 border-t ${borderColor} ${mobileMenuBg} transition-all duration-300`}
           >
             <a
               href="#biography"
-              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
+              onClick={() => setIsOpen(false)}
+              className={`block text-xs tracking-widest uppercase ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-3 px-2`}
             >
               {t.biography}
             </a>
             <a
               href="#concerts"
-              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
+              onClick={() => setIsOpen(false)}
+              className={`block text-xs tracking-widest uppercase ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-3 px-2`}
             >
               {t.concerts}
             </a>
             <a
               href="#gallery"
-              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
+              onClick={() => setIsOpen(false)}
+              className={`block text-xs tracking-widest uppercase ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-3 px-2`}
             >
               {t.gallery}
             </a>
             <a
               href="#contact"
-              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
+              onClick={() => setIsOpen(false)}
+              className={`block text-xs tracking-widest uppercase ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-3 px-2`}
             >
               {t.contact}
             </a>
